@@ -16,7 +16,7 @@ def study_image():
     # and read the result, make sure that you read and understand the
     # example we covered in the slides! 
     # you can use the headers to pass in hidden info, here we are sending a secret Key (think of it as a password)
-    headers = {'Authorization': 'Key 62c59b4eb52547238acda6225d9bd908'}
+    headers = {'Authorization': 'Key f2f339a3cc374420a221fa27e58a3202'}
 
     # this is the url of where your request will go
     api_url = "https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs"
