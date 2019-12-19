@@ -15,31 +15,26 @@ def study_image():
     # Your job now is to send this information to the Clarifai API
     # and read the result, make sure that you read and understand the
     # example we covered in the slides! 
-    # you can use the headers to pass in hidden info, here we are sending a secret Key (think of it as a password)
-    headers = {'Authorization': 'Key f2f339a3cc374420a221fa27e58a3202'}
-
-    # this is the url of where your request will go
+    # YOUR CODE HERE!
+    headers = {'Authorization': 'Key 02d7984e18b84e66a22b6c920a081edc'}
     api_url = "https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs"
-
-    # this is content of the message(data) you are sending to clarifai
+    
     data ={"inputs": [
-          {
-            "data": {
-            "image": {
-                "url": image_url
-            }
-            }
+      {
+        "data": {
+          "image": {
+            "url": image_url
           }
-        ]}
+        }
+      }
+    ]}
 
-    # putting everything together; sending the request!
     response = requests.post(api_url, headers=headers, data=json.dumps(data))
     response_dict = json.loads(response.content)
-    results=response_dict["outputs"][0]["data"]["concepts"]
+    list = response_dict["outputs"][0]["data"]["concepts"]
+	
 
-    return render_template('home.html', results=results)
-
-
+    return render_template('home.html', results=response_dict, list=list)
 
 
 if __name__ == '__main__':
